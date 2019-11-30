@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
+import axios from 'axios';
 
 const useStyles = theme => ({
   search: {
@@ -51,6 +52,39 @@ const useStyles = theme => ({
 });
 
 class MainPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(event) {
+    this.setState({ text: event.target.value });
+  }
+
+  handleSubmit(event) {
+    // handle the re routing to main page
+    var bodyFormData = new FormData();
+    bodyFormData.set('text', this.state.text);
+
+    axios({
+      url: '/search',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      data: bodyFormData,
+      method: 'post'
+    })
+      .then(function(response) {
+        // re route to results page
+        console.log(response.data);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+    event.preventDefault();
+  }
   render() {
     let { classes } = this.props;
 
@@ -104,35 +138,45 @@ class MainPage extends Component {
             h
           </span>
         </Typography>
-        <div
-          className={classes.search}
-          style={{
-            marginBottom: '1%',
-            width: '40%',
-            padding: '.2% 10px',
-            alignSelf: 'center'
-          }}
-        >
-          <div className={classes.searchIcon}>
-            <SearchIcon />
-          </div>
-          <InputBase
-            placeholder='Search…'
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput
+        <form onSubmit={this.handleSubmit}>
+          <div
+            className={classes.search}
+            style={{
+              marginBottom: '1%',
+              width: '40%',
+              padding: '.2% 10px',
+              alignSelf: 'center'
             }}
-            inputProps={{ 'aria-label': 'search' }}
-          />
-        </div>
-        <div className='MainPage-buttons'>
-          <Button variant='contained' className='MainPage-buttons--button '>
-            Search
-          </Button>
-          <Button variant='contained' className='MainPage-buttons--button '>
-            View All
-          </Button>
-        </div>
+          >
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder='Search…'
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput
+              }}
+              required='True'
+              value={this.state.text}
+              onChange={this.handleChange}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>
+          <div className='MainPage-buttons'>
+            <Button
+              variant='contained'
+              className='MainPage-buttons--button'
+              type='submit'
+              value='Submit'
+            >
+              Search
+            </Button>
+            <Button variant='contained' className='MainPage-buttons--button '>
+              View All
+            </Button>
+          </div>
+        </form>
       </div>
     );
   }

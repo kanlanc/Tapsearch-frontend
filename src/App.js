@@ -9,8 +9,8 @@ function App() {
     <div className='App'>
       <NavBar />
       {/* Use react router here for switching between mainpage and new doc and view all pages */}
-      {/* <MainPage /> */}
-      <NewDoc />
+      <MainPage />
+      {/* <NewDoc /> */}
       {/* <ViewAll /> */}
     </div>
   );
