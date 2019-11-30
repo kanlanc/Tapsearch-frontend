@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -32,10 +33,39 @@ export default function NavBar() {
           <Typography variant='h6' className={classes.title}>
             Tapsearch
           </Typography>
-          <Button>Add new</Button>
-          <Button>Search</Button>
-          <Button>Clear </Button>
-          <Button>View </Button>
+
+          <Button>
+            <Link
+              to='/addnewdoc'
+              style={{ color: 'inherit', textDecoration: 'inherit' }}
+            >
+              Add new
+            </Link>
+          </Button>
+          <Button>
+            <Link
+              to='/'
+              style={{ color: 'inherit', textDecoration: 'inherit' }}
+            >
+              Search
+            </Link>
+          </Button>
+          <Button>
+            <Link
+              to='/clear'
+              style={{ color: 'inherit', textDecoration: 'inherit' }}
+            >
+              Clear
+            </Link>{' '}
+          </Button>
+          <Button>
+            <Link
+              to='/viewall'
+              style={{ color: 'inherit', textDecoration: 'inherit' }}
+            >
+              View{' '}
+            </Link>{' '}
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

@@ -82,23 +82,14 @@ class MainPage extends Component {
       .then(response => {
         // re route to results page
         redirect = true;
-        // this.state.results = response.data;
+        console.log(response.data);
         this.setState({ results: response.data, length: 1 });
-        // this.state.length = 1;
-        console.log(this.state.results);
       })
       .catch(function(error) {
         console.log(error);
       });
 
     event.preventDefault();
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextState.length == 1) {
-      return true;
-    }
-    return false;
   }
 
   render() {
