@@ -1,0 +1,23 @@
+.centered {
+  position: absolute; /* or absolute */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.MainPage {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  width: 100%;
+  /* padding: 0 20%; */
+}
+.MainPage-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.MainPage-buttons--button {
+  margin: 15px !important;
+  padding: 5px 55px !important;
+  color: #5f6368 !important;
+}

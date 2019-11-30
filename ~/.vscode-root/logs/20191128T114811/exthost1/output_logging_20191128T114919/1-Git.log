@@ -1,0 +1,30 @@
+Looking for git in: git
+Using git  from git
+> git rev-parse --show-toplevel
+> git rev-parse --git-dir
+> git config --get commit.template
+Open repository: /home/vikranth/Desktop/tapsearch/frontend
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -v -z --stdin
+> git check-ignore -v -z --stdin
+> git config --global user.email
+> git config --global user.name
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git show -s --format=%an <%ae> [%ai] 8c552897be36b00d06466ce7fa40eb4ebb9a8ca7
+> git show -s --format=%H
+%ae
+%P
+%B 8c552897be36b00d06466ce7fa40eb4ebb9a8ca7
+> git check-ignore -v -z --stdin

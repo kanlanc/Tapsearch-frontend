@@ -1,24 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import MainPage from './components/MainPage/MainPage';
+import NavBar from './components/NavBar/NavBar';
+import NewDoc from './components/NewDoc/NewDoc';
+import ViewAll from './components/ViewAll/ViewAll';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <NavBar />
+      {/* Use react router here for switching between mainpage and new doc and view all pages */}
+      {/* <MainPage /> */}
+      <NewDoc />
+      {/* <ViewAll /> */}
     </div>
   );
 }
